@@ -43,7 +43,13 @@ class ManageUsers{
 
     }
 
-   
+   function updatePassword($username,$password,$newPassword){
+        $datetime = date_create()->format('Y-m-d H:i:s');
+        $query = $this->link->query("UPDATE movies.users SET password ='$newPassword' WHERE username='$username'");
+        $rowcount = $query->rowCount();
+        return $rowcount;
+
+    }
 
     function addMovie($title,$logo,$description,$category,$user,$filename){
         $datetime = date_create()->format('Y-m-d H:i:s');
